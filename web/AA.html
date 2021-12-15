@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  ></script>
+		
+	
+	<script>
+	$(document).ready(function() {
+    var max_fields      = 1000; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+   
+    var x = 1; //initlal text box count
+	
+	
+   $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+	
+		     //text box increment
+            $(wrapper).append('<div><input type="date" name="mytext[]" <div><input type="text" name="mytext[]" / ><a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+            x++; 
+	  }
+    });
+   
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+       
+		e.preventDefault(); 
+		$(this).parent('div').remove(); 
+		x--;
+    })
+});
+	
+	</script>
+
+<body>
+  <div class="logo">
+    <img src="i.png" alt="">
+</div>
+<div class="container">
+    <h1 class="title">Employee Details </h1><br>
+  <form action="">
+    <div class="form-group">
+      <label for="email"><b>Emp-code:</b> </label>
+      <input type="text" class="form-control-md" id="email" placeholder="Enter Emp-code" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd"><b> Employee Name:</b></label>
+      <input type="text" class="form-control-md" id="pwd" placeholder="Enter Name" name="pswd">
+    </div>
+    <div class="form-group">
+        <label for="email"><b> Joining Date:</b></label>
+        <input type="date" class="form-control-md" id="email" placeholder="MM/DD/yyyy" name="email">
+      </div>
+      
+    <div class="col-auto my-2 set">
+        <label for="pwd"><b> Grade:</b></label>
+        <select class="select">
+          <option selected>Choose...</option>
+            <option>MT</option>
+                   
+            <option>J1</option>
+            <option>J2</option>
+            <option>J3</option>
+            <option>J4</option>
+            <option>J5</option>
+            <option>J6</option>
+                    
+            <option>M1</option>
+            <option>M2</option>
+            <option>M3</option>
+            <option>M4</option>
+          
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+          
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pwd"><b>Skill 1:</b></label>
+        <textarea>data analyst</textarea>
+      </div>
+      <div class="form-group">
+        <label for="pwd"><b>Skill 2:</b></label>
+        <textarea>data analyst</textarea>
+      </div>
+      <div class="form-group">
+        <label for="pwd"><b>Skill 3:</b></label>
+        <textarea>data analyst</textarea>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="annual"><b>Annual CTC:</b> </label> -->
+        <!-- <input type="date" class="form-control-md" id="pwd" placeholder="Enter date" name="pswd">
+          <input type="text" id="salary" placeholder="Enter Annual-CTC" name="" value="">
+           -->
+           <div class="input_fields_wrap">
+            <div><label><b>Annual CTC:</b></label></div>
+            <div>
+            <input id="ja" type="date" name="mytext[]" >
+            <input id="ba" type="text" name="mytext[]"onclick="return CTC()">
+            <button class="add_field_button btn">+</button>
+            </div>
+            <!-- <div><input type="date" name="mytext[]"></div> -->
+             </div>
+      <div>
+        <label for="pwd"><b>Monthly Salary:</b></label>
+        <!-- <input  id="ga" placeholder="enter 12 month" onclick="return CTC()"> -->
+        <span id="month"></span>
+      </div>
+      <div class="form-group">
+        <label for="email"><b>Project Assign:</b></label>
+        <select class="select" id="inlineFormCustomSelect">
+            <option selected>Choose...</option>
+            <option value="2">MT</option>
+            <option value="3">J6</option>
+         </select>
+      </div>
+      <div class="form-group">
+        <label for="pwd"><b>  Man power deployment date:</b></label>
+        <input type="date" class="form-control-md" id="pwd" placeholder="Enter date" name="pswd">
+      </div>
+      <button>submit</button>
+  </form>
+</div>
+
+
+<script>
+  function CTC() {
+  var sal = document.getElementById("ba").value;
+  var lat= 12;
+  var d=sal/lat;
+ var b= document.getElementById("month").innerHTML=Math.floor(d);
+ console.log(b);
+ 
+ 
+
+      
+}
+</script>
+
+
+
+
+
+</body>
+</html>
+
+
